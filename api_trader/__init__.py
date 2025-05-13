@@ -9,7 +9,7 @@ import os
 from pymongo.errors import WriteError, WriteConcernError
 import traceback
 import time
-from random import randint
+import secrets
 
 
 THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
@@ -141,7 +141,7 @@ class ApiTrader(Tasks, OrderBuilder):
 
         else:
 
-            obj["Order_ID"] = -1*randint(100_000_000, 999_999_999)
+            obj["Order_ID"] = -1*secrets.SystemRandom().randint(100_000_000, 999_999_999)
 
             obj["Account_Position"] = "Paper"
 
