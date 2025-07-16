@@ -5,6 +5,7 @@ import time
 import requests
 from assets.helper_functions import modifiedAccountID
 from assets.exception_handler import exception_handler
+from security import safe_requests
 
 
 class TDAmeritrade:
@@ -202,7 +203,7 @@ class TDAmeritrade:
 
             if method == "GET":
 
-                resp = requests.get(url, headers=self.header)
+                resp = safe_requests.get(url, headers=self.header)
 
                 return resp.json()
 
