@@ -46,7 +46,7 @@ class PushNotification:
 
             self.post_fields["m"] = notification
 
-            response = requests.post(self.url, self.post_fields)
+            response = requests.post(self.url, self.post_fields, timeout=60)
 
             if response.json()["success"] == 'message transmitted':
 
