@@ -147,7 +147,7 @@ class TDAmeritrade:
         resp = requests.post('https://api.tdameritrade.com/v1/oauth2/token',
                              headers={
                                  'Content-Type': 'application/x-www-form-urlencoded'},
-                             data=data)
+                             data=data, timeout=60)
 
         if resp.status_code != 200:
 
@@ -202,31 +202,31 @@ class TDAmeritrade:
 
             if method == "GET":
 
-                resp = requests.get(url, headers=self.header)
+                resp = requests.get(url, headers=self.header, timeout=60)
 
                 return resp.json()
 
             elif method == "POST":
 
-                resp = requests.post(url, headers=self.header, json=data)
+                resp = requests.post(url, headers=self.header, json=data, timeout=60)
 
                 return resp
 
             elif method == "PATCH":
 
-                resp = requests.patch(url, headers=self.header, json=data)
+                resp = requests.patch(url, headers=self.header, json=data, timeout=60)
 
                 return resp
 
             elif method == "PUT":
 
-                resp = requests.put(url, headers=self.header, json=data)
+                resp = requests.put(url, headers=self.header, json=data, timeout=60)
 
                 return resp
 
             elif method == "DELETE":
 
-                resp = requests.delete(url, headers=self.header)
+                resp = requests.delete(url, headers=self.header, timeout=60)
 
                 return resp
 
